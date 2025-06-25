@@ -26,7 +26,7 @@ export default function ExpressionField({
                 onChange={(e) =>
                     setState((prevState: Expressions) => ({
                         ...prevState,
-                        left: e.target.value,
+                        [value]: e.target.value,
                     }))
                 }
             />
