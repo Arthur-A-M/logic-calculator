@@ -5,10 +5,10 @@ import React, { useState } from 'react';
 import { Expressions, InitialExpressions } from '@/constants'
 import { ExpressionField } from '@/components';
 
-export default function Home() {
-  const [expressions, setExpressions]: [Expressions, React.Dispatch<React.SetStateAction<Expressions>>] = useState(InitialExpressions);
-  const [areEqual, setAreEqual] = useState(false);
-  const [error, setError]: any = useState(null);
+export default function Home(): React.ReactElement {
+  const [expressions, setExpressions]: [Expressions, React.Dispatch<React.SetStateAction<Expressions>>] = useState<Expressions>(InitialExpressions);
+  const [areEqual, setAreEqual]: [boolean | null, React.Dispatch<React.SetStateAction<boolean | null>>] = useState<boolean | null>(null);
+  const [error, setError]: [string | null, React.Dispatch<React.SetStateAction<string | null>>] = useState<string | null>(null);
 
   const handleCheck = () => {
     if (expressions.left === null || expressions.right === null) {
