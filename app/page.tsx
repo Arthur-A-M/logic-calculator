@@ -1,12 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
+
+import { Expressions, InitialExpressions } from '@/constants'
 
 export default function Home() {
-  const [expressions, setExpressions] = useState({
-    left: '',
-    right: '',
-  });
+  const [expressions, setExpressions]: [Expressions, React.Dispatch<React.SetStateAction<Expressions>>] = useState(InitialExpressions);
   const [areEqual, setAreEqual] = useState(false);
   const [error, setError]: any = useState(null);
 
