@@ -6,13 +6,11 @@ export default function ExpressionField({
     name,
     placeholder,
     state,
-    value,
     setState
 }: {
-    name: string;
+    name: 'left' | 'right';
     placeholder: string;
     state: Expressions;
-    value: 'left' | 'right',
     setState: React.Dispatch<React.SetStateAction<Expressions>>;
 }) {
     return (
@@ -22,11 +20,11 @@ export default function ExpressionField({
                 name={name}
                 placeholder={placeholder}
                 className={styles.input}
-                value={state[value]}
+                value={state[name]}
                 onChange={(e) =>
                     setState((prevState: Expressions) => ({
                         ...prevState,
-                        [value]: e.target.value,
+                        [name]: e.target.value,
                     }))
                 }
             />

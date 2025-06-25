@@ -31,14 +31,12 @@ export default function Home() {
         name="left"
         placeholder="Expressão 1"
         state={expressions}
-        value="left"
         setState={setExpressions}
       />
       <ExpressionField
         name="right"
         placeholder="Expressão 2"
         state={expressions}
-        value="right"
         setState={setExpressions}
       />
       <button onClick={handleCheck}>Check</button>
