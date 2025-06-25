@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 
 import { Expressions, InitialExpressions } from '@/constants'
+import { ExpressionField } from '@/components';
 
 export default function Home() {
   const [expressions, setExpressions]: [Expressions, React.Dispatch<React.SetStateAction<Expressions>>] = useState(InitialExpressions);
@@ -26,31 +27,19 @@ export default function Home() {
     <div>
       <p>{JSON.stringify(areEqual)}</p>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <input
-        type="text"
+      <ExpressionField
         name="left"
-        id=""
-        placeholder='Expressão 1'
-        value={expressions.left}
-        onChange={(e) =>
-          setExpressions((prevState) => ({
-            ...prevState,
-            left: e.target.value,
-          }))
-        }
+        placeholder="Expressão 1"
+        state={expressions}
+        value="left"
+        setState={setExpressions}
       />
-      <input
-        type="text"
+      <ExpressionField
         name="right"
-        id=""
-        placeholder='Expressão 2'
-        value={expressions.right}
-        onChange={(e) =>
-          setExpressions((prevState) => ({
-            ...prevState,
-            right: e.target.value,
-          }))
-        }
+        placeholder="Expressão 2"
+        state={expressions}
+        value="right"
+        setState={setExpressions}
       />
       <button onClick={handleCheck}>Check</button>
     </div>
