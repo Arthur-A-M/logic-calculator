@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    width: 40%;
+    height: 80px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input {
+    width: 100%;
+    font-size: 24px;
+    padding: 5px;
+    border: none;
+    outline: none;
+}

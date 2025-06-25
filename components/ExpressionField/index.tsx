@@ -1,5 +1,7 @@
 import type { Expressions } from '@/constants';
 
+import styles from './expressionField.module.css';
+
 export default function ExpressionField({
     name,
     placeholder,
@@ -14,18 +16,20 @@ export default function ExpressionField({
     setState: React.Dispatch<React.SetStateAction<Expressions>>;
 }) {
     return (
-        <input
-            type="text"
-            name={name}
-            placeholder={placeholder}
-            style={{ width: "100%" }}
-            value={state[value]}
-            onChange={(e) =>
-                setState((prevState: Expressions) => ({
-                    ...prevState,
-                    left: e.target.value,
-                }))
-            }
-        />
+        <div className={styles.container}>
+            <input
+                type="text"
+                name={name}
+                placeholder={placeholder}
+                className={styles.input}
+                value={state[value]}
+                onChange={(e) =>
+                    setState((prevState: Expressions) => ({
+                        ...prevState,
+                        left: e.target.value,
+                    }))
+                }
+            />
+        </div>
     );
 }
